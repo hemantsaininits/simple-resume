@@ -22,5 +22,98 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, Helvetica, sans-serif;
 }
+
+/* Smooth scrolling for in-page anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide vertical scrollbar across browsers while preserving scroll */
+html, body {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+/* Chrome/Safari/Opera */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Hero button animations */
+@keyframes rotate-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25); }
+  50% { box-shadow: 0 12px 38px rgba(99, 102, 241, 0.35); }
+}
+
+@keyframes shine-sweep {
+  0% { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(150%) skewX(-20deg); opacity: 0; }
+}
+
+.spin-slow { animation: rotate-slow 8s linear infinite; }
+.animate-glow { animation: glow-pulse 2.8s ease-in-out infinite; }
+.btn-hero:hover .shine-sweep { animation: shine-sweep 1s ease; }
+.btn-hero-secondary:hover .shine-sweep { animation: shine-sweep 1s ease; }
+.industry-card:hover .shine-sweep { animation: shine-sweep 1.2s ease; }
+
+/* Hero ambient animations */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-bob-slower {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float { animation: float-bob 6s ease-in-out infinite; }
+.animate-float-slow { animation: float-bob-slower 8s ease-in-out infinite; }
+.gradient-animate { background-size: 200% 200%; animation: gradient-shift 8s ease infinite; }
+.shimmer-border {
+  position: relative;
+}
+.shimmer-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from 90deg at 50% 50%, rgba(59,130,246,0.25), rgba(99,102,241,0.25), rgba(59,130,246,0.25));
+  filter: blur(8px);
+  opacity: .3;
+  z-index: -1;
+}
+
+/* Reusable spinning conic gradient border ring */
+.gradient-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from 90deg at 50% 50%, #3b82f6, #8b5cf6, #22d3ee, #3b82f6);
+  padding: 2px; /* ring thickness */
+  /* Mask the center so only the edge (padding) shows */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animate gradient ring only on hover for industry cards */
+.industry-card:hover .gradient-border { animation: rotate-slow 3s linear infinite; }
+.industry-card:active .gradient-border { animation-direction: reverse; }
