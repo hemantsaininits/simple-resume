@@ -342,7 +342,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Why Your Business Needs A Website</h2>
           <p className="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
-            In today's digital age, your website is your storefront, your salesperson, and your brand ambassador - all working together 24/7 to grow your business
+            {"In today's digital age, your website is your storefront, your salesperson, and your brand ambassador - all working together 24/7 to grow your business"}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -376,7 +376,7 @@ export default function Home() {
             <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700 backdrop-blur-sm">
               <h3 className="text-xl font-bold mb-4 text-white">Credibility & Trust Building</h3>
               <p className="text-gray-300 mb-4">
-                75% of consumers admit to making judgments about a company's credibility based on their website design.
+               {" 75% of consumers admit to making judgments about a company's credibility based on their website design."}
               </p>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center">
@@ -542,8 +542,8 @@ export default function Home() {
             </div>
             
             <div className="mt-12 text-center">
-              <p className="text-gray-400 mb-6">
-                We've helped businesses across all industries increase revenue, credibility, and customer engagement through strategic website development.
+              <p className="text-gray-400 mb-6">=
+                {"We've helped businesses across all industries increase revenue, credibility, and customer engagement through strategic website development."}
               </p>
               <a href="#contact" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all font-medium">
                 Get Your FREE Industry Report
@@ -610,7 +610,7 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <h3 className="text-2xl font-bold text-white mb-4">Thank You!</h3>
-                  <p className="text-gray-300">Your message has been sent successfully. We'll get back to you shortly.</p>
+                  <p className="text-gray-300">{"Your message has been sent successfully. We'll get back to you shortly."}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="bg-gray-800/50 p-8 rounded-xl border border-gray-700 backdrop-blur-sm">
